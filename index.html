@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Mahjong Tracker Clone</title>
+
+</head>
+
+<body style="height: 3000px">
+    <select onchange="renderData()" id="bet">
+        <option value="10c/20c">10c/20c</option>
+        <option value="20c/40c">20c/40c</option>
+        <option value="40c/80c">40c/80c</option>
+        <option value="30c/60c">30c/60c</option>
+        <option value="50c/$1">50c/$1</option>
+        <option value="$1/$2">$1/$2</option>
+        <option value="$2/$4">$2/$4</option>
+        <option value="$3/$6">$3/$6</option>
+        <option value="$5/$10">$5/$10</option>
+    </select>
+
+    <div style="display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;">
+        <div style="flex: 2;
+            background-color: lightpink;
+            justify-content: center;
+            align-items: center;">
+            <input type="checkbox" id="switch">
+            Shooter Pay
+            </input>
+        </div>
+
+        <div style="flex: 1; background-color: lightblue;">Zimo bonus </div>
+    </div>
+
+    <div id="payoutGrid" style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 5px;
+        justify-content: center;">
+
+        <div style="background-color: lightblue;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    align-items: center;">
+            <div>Tai</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+        </div>
+
+        <div style="background-color: lightpink;                   
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    align-items: center;">
+            <div>Shooter Pay</div>
+            <div>4</div>
+            <div>7</div>
+            <div>11</div>
+            <div>20</div>
+            <div>40</div>
+        </div>
+
+        <div style="background-color: lightblue;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    align-items: center;">
+            <div>Self Draw</div>
+            <div>2</div>
+            <div>3</div>
+            <div>5</div>
+            <div>10</div>
+            <div>20</div>
+        </div>
+
+
+        <!-- <div>1</div>
+        <div>1fr</div>
+        <div>1fr</div>
+
+        <div>2</div>
+        <div>1fr</div>
+        <div>1fr</div>
+
+        <div>3</div>
+        <div>1fr</div>
+        <div>1fr</div>
+
+        <div>4</div>
+        <div>1fr</div>
+        <div>1fr</div>
+
+        <div>5</div>
+        <div>1fr</div>
+        <div>1fr</div> -->
+
+    </div>
+
+    <p>Select a new car from the list.</p>
+
+    <select id="mySelect" onchange="myFunction()">
+        <option value="FirstSet">Set1
+        <option value="SecondSet">Set2
+        <option value="ThirdSet">Set3
+        <option value="FourthSet">Set4
+    </select>
+
+    <p id="demo"></p>
+
+    <table>
+        <tbody>
+            <tr>
+                <td><a>AA <button type="button" style="float: right;">1</button></a></td>
+                <td><a>BB <button type="button" style="float: right;">3</button></a></td>
+                <td><a>CC <button type="button" style="float: right;">2</button></a></td>
+                <td><a>DD <button type="button" style="float: right;">4</button></a></td>
+            </tr>
+            <tr>
+                <td><a>AAA <button type="button" style="float: right;">5</button></a></td>
+                <td><a>BBB <button type="button" style="float: right;">6</button></a></td>
+                <td><a>CCC <button type="button" style="float: right;">9</button></a></td>
+                <td><a>DDD <button type="button" style="float: right;">8</button></a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function renderData() {
+            let x = document.getElementById("bet").value;
+            const element = document.createElement('div');
+            element.innerText = x;
+            const test = document.getElementById('test');
+            test.appendChild(element);
+        }
+
+        var rep_array = [11, 33, 44, 88, 15, 45, 67, 8]
+        function myFunction() {
+            var x = document.getElementById("mySelect").value;
+            if (x == 'FirstSet') {
+                x = 99;
+            } else {
+                x = 88;
+                var a_tag = document.querySelectorAll('a > button');
+                console.log("a_tag : " + a_tag);
+                a_tag.forEach(function (a, b) {
+                    a_tag[b].innerHTML = rep_array[b];
+                    console.log("a: " + a);
+                    console.log('b: ' + b);
+                })
+
+            }
+            document.getElementById("demo").innerHTML = "You selected: " + x;
+        }
+
+    </script>
+
+
+</body>
+
+<style>
+
+
+
+</style>
+
+</html>
